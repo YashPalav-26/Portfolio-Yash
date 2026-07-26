@@ -100,12 +100,12 @@ const ProjectsSection = () => {
                                 <div className="space-y-6">
                                     <div>
                                         <p className="text-primary font-mono text-sm mb-2 tracking-widest uppercase">Featured Project</p>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                                        <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
                                             {project.title}
                                         </h3>
                                     </div>
 
-                                    <div className="relative bg-foreground/5 border border-border/60 rounded-xl shadow-lg p-6 md:p-8 md:-ml-16 backdrop-blur-sm">
+                                    <div className="relative bg-card border-2 border-border p-6 md:p-8 md:-ml-16 shadow-brutal">
                                         <p className="text-foreground/80 leading-relaxed">
                                             {project.description}
                                         </p>
@@ -154,7 +154,7 @@ const ProjectsSection = () => {
                         {otherProjects.map((project, index) => (
                             <FadeInItem
                                 key={index}
-                                className="relative neobrutalist-card h-full flex flex-col group overflow-hidden rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl after:pointer-events-none after:absolute after:-right-10 after:-top-10 after:h-24 after:w-24 after:rounded-full after:bg-primary/20 after:blur-3xl after:opacity-0 group-hover:after:opacity-100"
+                                className="relative neobrutalist-card h-full flex flex-col group overflow-hidden transition-all duration-300 hover:translate-y-[-4px] hover:shadow-brutal"
                             >
                                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
                                 <div className="flex items-center justify-between mb-6">
