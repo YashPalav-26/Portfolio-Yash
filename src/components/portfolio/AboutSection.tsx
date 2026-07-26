@@ -89,7 +89,7 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Reveal delay={0.1} className="md:col-span-2">
-            <div className="h-full neobrutalist-card p-8 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 bg-card border border-border flex flex-col justify-between">
+            <div className="h-full neobrutalist-card p-8 relative overflow-hidden group bg-card transition-all flex flex-col justify-between">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
@@ -111,9 +111,9 @@ const AboutSection = () => {
 
               <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
                 <Link to="/resume">
-                  <button className="px-6 py-2.5 bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg font-semibold text-sm flex items-center gap-2 transition-all hover:gap-3 shadow-sm">
-                    <Download className="w-4 h-4" />
-                    View Resume
+                  <button className="neobrutalist-button neobrutalist-button-primary px-6 py-2.5 flex items-center gap-2 group">
+                    <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+                    <span className="relative z-10">View Resume</span>
                   </button>
                 </Link>
               </div>
@@ -121,7 +121,7 @@ const AboutSection = () => {
           </Reveal>
 
           <Reveal delay={0.2} className="md:col-span-1 md:row-span-2">
-            <div className="h-full neobrutalist-card p-0 overflow-hidden relative group bg-background/50 border border-border flex flex-col items-center justify-center min-h-[300px]">
+            <div className="h-full neobrutalist-card p-0 overflow-hidden relative group bg-background/50 flex flex-col items-center justify-center min-h-[300px]">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-50" />
               <div className="w-full h-full p-6 flex items-center justify-center relative z-10 scale-110 group-hover:scale-125 transition-transform duration-700">
                 <Lottie
@@ -134,29 +134,29 @@ const AboutSection = () => {
           </Reveal>
 
           <Reveal delay={0.3} className="md:col-span-2">
-            <div className="h-full neobrutalist-card p-8 relative group hover:-translate-y-1 transition-all duration-300 bg-card border border-border">
+            <div className="h-full neobrutalist-card p-8 relative group transition-all bg-card">
               <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
                 <GraduationCap className="w-5 h-5 text-secondary" />
                 Education
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div className="space-y-2 relative pl-4 border-l-2 border-secondary/20">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-secondary" />
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-none bg-secondary shadow-brutal" />
                   <p className="text-foreground font-semibold">Diploma in IT</p>
                   <p className="text-sm text-foreground/60">
                     Govt. Polytechnic Mumbai
                   </p>
-                  <span className="stat-badge text-xs bg-secondary/10 text-secondary border border-secondary/20 px-2 py-1 rounded-md font-bold inline-block mt-2">
+                  <span className="stat-badge text-xs inline-block mt-2">
                     91.52% Score
                   </span>
                 </div>
                 <div className="space-y-2 relative pl-4 border-l-2 border-primary/20">
-                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-full bg-primary" />
+                  <span className="absolute -left-[5px] top-1.5 w-2 h-2 rounded-none bg-primary shadow-brutal" />
                   <p className="text-foreground font-semibold">SSC</p>
                   <p className="text-sm text-foreground/60">
                     IES New English School
                   </p>
-                  <span className="stat-badge text-xs bg-primary/10 text-primary border border-primary/20 px-2 py-1 rounded-md font-bold inline-block mt-2">
+                  <span className="stat-badge text-xs inline-block mt-2">
                     87.40% Score
                   </span>
                 </div>
@@ -186,21 +186,20 @@ const AboutSection = () => {
                       className="
                         flex items-center gap-3
                         px-3 py-3 sm:px-4
-                        rounded-xl
-                        border border-border/60
-                        bg-background/40
+                        rounded-none
+                        border-2 border-border
+                        bg-card
                         transition-all duration-300
-                        sm:hover:bg-muted/40
-                        sm:hover:shadow-sm
+                        hover:translate-y-[-2px]
+                        hover:shadow-brutal
+                        hover:border-primary
                       "
                     >
                       <div
                         className={`
-                          p-2 rounded-lg
+                          p-2 rounded-none border border-border
                           ${interest.color} ${interest.bg}
                           transition-all duration-300
-                          sm:group-hover:text-primary
-                          sm:group-hover:scale-105
                           shrink-0
                         `}
                       >
