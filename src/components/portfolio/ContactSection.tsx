@@ -80,8 +80,7 @@ const ContactSection = () => {
           </Reveal>
 
           <Reveal>
-            <div className="neobrutalist-card p-8 relative overflow-hidden rounded-xl border border-primary/20 shadow-lg">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="neobrutalist-card p-8 relative overflow-hidden bg-card">
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
