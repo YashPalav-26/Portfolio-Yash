@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   SiTypescript,
@@ -27,7 +28,7 @@ import {
   SiVite,
   SiPostman,
   SiBruno,
-  SiBun
+  SiBun,
 } from "react-icons/si";
 import { TbBrandVercel } from "react-icons/tb";
 import { Reveal, FadeInStagger, FadeInItem } from "@/components/animations/Reveal";
@@ -66,16 +67,14 @@ const BRAND_COLORS: Record<string, string> = {
   Blender: "#F5792A",
 };
 
-function alpha(hex: string, a: number) {
-  const h = hex.replace("#", "");
-  const isShort = h.length === 3;
-  const r = parseInt(isShort ? h[0] + h[0] : h.substring(0, 2), 16);
-  const g = parseInt(isShort ? h[1] + h[1] : h.substring(2, 4), 16);
-  const b = parseInt(isShort ? h[2] + h[2] : h.substring(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${a})`;
-}
 
-const skills = [
+const categories = [
+  { name: "Frontend", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React.js", "Redux", "React Router", "Next.js", "Three.js", "Tailwind CSS", "DaisyUI"] },
+  { name: "Backend", items: ["Node.js", "Express.js", "Java", "Python", "MongoDB", "Mongoose", "MySQL"] },
+  { name: "Tools & DevOps", items: ["Git", "GitHub", "Vite", "Bun", "Postman", "Bruno", "Vercel", "Blender"] },
+];
+
+const allSkills = [
   { name: "HTML", icon: SiHtml5 },
   { name: "CSS", icon: SiCss3 },
   { name: "JavaScript", icon: SiJavascript },
@@ -109,27 +108,18 @@ const skills = [
 
 const SkillsSection = () => {
   const { theme } = useTheme();
+  const [activeCategory, setActiveCategory] = useState(categories[0].name);
 
   return (
-    <section id="skills" className="py-16 px-4 relative">
+    <section id="skills" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-6xl">
         <Reveal>
           <h2 className="section-title text-center">My Skills</h2>
         </Reveal>
 
         <Reveal>
-          <p className="text-center text-foreground/70 max-w-2xl mx-auto mt-2">
-            A collection of technologies and tools I'm proficient in, constantly learning and improving.
-          </p>
-        </Reveal>
-
-        <Reveal>
-          <div
-            className="skills-shell mt-16 p-8 relative min-h-[600px] overflow-hidden bg-background
-              border border-white/10"
-          >
+          <div className="skills-shell mt-16 p-6 md:p-8 relative overflow-hidden bg-background border border-border">
             <div className="absolute inset-0 bg-background backdrop-blur-[1px] z-0" />
-
             <div className="absolute inset-0 pointer-events-none z-[1] opacity-[0.15]">
               <DotGrid
                 className="w-full h-full p-0"
@@ -144,54 +134,58 @@ const SkillsSection = () => {
                 returnDuration={1.5}
               />
             </div>
+            <div className="relative z-[2] flex flex-col md:flex-row gap-8">
+              {/* Tab Selector */}
+              <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 shrink-0">
+                {categories.map((cat) => (
+                  <button
+                    key={cat.name}
+                    onClick={() => setActiveCategory(cat.name)}
+                    className={cn(
+                      "px-5 py-3 text-sm font-bold uppercase tracking-wider transition-all border-2",
+                      activeCategory === cat.name
+                        ? "bg-primary text-primary-foreground border-primary translate-y-0.5"
+                        : "bg-card hover:translate-y-[-2px] border-border shadow-brutal"
+                    )}
+                  >
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
 
-            <div className="relative z-[2]">
-              <FadeInStagger className="flex flex-wrap justify-center gap-5 gap-y-8 gap-x-6">
-                {skills.map((skill) => {
-                  const IconComponent = skill.icon;
-                  const color = BRAND_COLORS[skill.name] || "currentColor";
-                  const isWhiteBrand = color === "#FFFFFF";
-                  const iconColor = isWhiteBrand ? (theme === "light" ? "#1e293b" : "#e2e8f0") : color;
+              {/* Content Grid */}
+              <div className="flex-1">
+                <FadeInStagger key={activeCategory} className="flex flex-wrap gap-4">
+                  {categories
+                    .find((c) => c.name === activeCategory)
+                    ?.items.map((skillName) => {
+                      const skill = allSkills.find((s) => s.name === skillName);
+                      if (!skill) return null;
+                      const IconComponent = skill.icon;
+                      const color = BRAND_COLORS[skill.name] || "currentColor";
+                      const isWhiteBrand = color === "#FFFFFF";
+                      // White icons need dark backgrounds for visibility
+                      const useDarkBg = isWhiteBrand || ["Next.js", "Express.js", "Vercel", "Bun"].includes(skill.name);
 
-                  return (
-                    <FadeInItem
-                      key={skill.name}
-                      className={cn(
-                        "relative p-4 text-center group transform transition-all duration-300 hover:-translate-y-1",
-                        "bg-white/5 backdrop-blur-sm border border-white/8 hover:border-primary/50 rounded-lg"
-                      )}
-                    >
-                      <div className="relative mb-2">
-                        <div
-                          className={cn(
-                            "w-12 h-12 mx-auto rounded-lg flex items-center justify-center mb-2 transition-all",
-                            isWhiteBrand && "icon-dark-bg"
-                          )}
-                          style={{
-                            background: !isWhiteBrand
-                              ? `linear-gradient(135deg, ${alpha(color, 0.22)}, ${alpha("#000000", 0)})`
-                              : undefined,
-                            boxShadow: !isWhiteBrand ? `0 0 0 1px ${alpha(color, 0.45)}` : undefined,
-                          }}
+                      return (
+                        <FadeInItem
+                          key={skill.name}
+                          className="flex-shrink-0"
                         >
-                          <IconComponent className="w-6 h-6" style={{ color: iconColor }} />
-                        </div>
-
-                        <span
-                          className="pointer-events-none absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"
-                          style={{
-                            background: `radial-gradient(120px 60px at 20% 0%, ${alpha(color, 0.18)}, transparent 60%)`,
-                          }}
-                        />
-                      </div>
-
-                      <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors">
-                        {skill.name}
-                      </span>
-                    </FadeInItem>
-                  );
-                })}
-              </FadeInStagger>
+                          <div className={cn(
+                            "p-4 rounded-lg border-2 border-border bg-card flex flex-col items-center gap-2",
+                            "transition-all duration-300 hover:translate-y-[-4px] hover:shadow-brutal hover:border-primary"
+                          )}>
+                            <div className={cn("w-12 h-12 flex items-center justify-center rounded-lg border", useDarkBg ? "icon-dark-bg" : "bg-white/5 border-white/10")}>
+                               <IconComponent className="w-6 h-6" style={{ color: useDarkBg ? (theme === "light" ? "#1e293b" : "#e2e8f0") : color }} />
+                            </div>
+                            <span className="text-xs font-bold uppercase tracking-tight">{skill.name}</span>
+                          </div>
+                        </FadeInItem>
+                      );
+                    })}
+                </FadeInStagger>
+              </div>
             </div>
           </div>
         </Reveal>
