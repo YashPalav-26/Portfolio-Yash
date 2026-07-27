@@ -88,7 +88,7 @@ const ProjectsSection = () => {
                     {featuredProjects.map((project, index) => (
                         <Reveal key={index}>
                             <div className="grid md:grid-cols-2 gap-12 items-center neobrutalist-card md:relative">
-                                <div className="relative group overflow-hidden rounded-lg ring-1 ring-primary/10">
+                                <div className="relative group overflow-hidden">
                                     <img
                                         src={project.image}
                                         alt={project.title}
@@ -127,7 +127,7 @@ const ProjectsSection = () => {
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="rounded-full border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                                            className="border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                                             aria-label="View source code on GitHub"
                                         >
                                             <Github size={24} />
@@ -136,7 +136,7 @@ const ProjectsSection = () => {
                                             href={project.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="rounded-full border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                                            className="border border-primary/40 p-2 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                                             aria-label="View live project"
                                         >
                                             <ExternalLink size={24} />
@@ -166,7 +166,7 @@ const ProjectsSection = () => {
                                             href={project.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="rounded-full border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                                            className="border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                                             aria-label="View source code on GitHub"
                                         >
                                             <Github size={20} />
@@ -175,7 +175,7 @@ const ProjectsSection = () => {
                                             href={project.live}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="rounded-full border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
+                                            className="border border-primary/40 p-1.5 text-foreground hover:text-primary hover:bg-primary/10 transition-colors duration-200"
                                             aria-label="View live project"
                                         >
                                             <ExternalLink size={20} />
@@ -191,7 +191,7 @@ const ProjectsSection = () => {
                                     {project.technologies.map((tech) => (
                                         <span
                                             key={tech}
-                                            className="text-[11px] font-mono text-secondary/90 bg-secondary/5 border border-secondary/30 rounded-full px-2.5 py-1 transition-colors group-hover:bg-secondary/10"
+                                            className="text-xs font-mono text-secondary/90 bg-secondary/5 border border-secondary/30 px-2 py-1 transition-colors group-hover:bg-secondary/10"
                                         >
                                             {tech}
                                         </span>
