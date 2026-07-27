@@ -139,10 +139,10 @@ const ContactSection = () => {
                   {!isLoading && <Send size={18} className="relative z-10" />}
                 </Button>
                 {success && (
-                  <p role="status" aria-live="polite" className="text-sm mt-2 rounded-md border border-green-500/30 bg-green-500/10 text-green-400 px-3 py-2">Your message has been sent!</p>
+                  <p role="status" aria-live="polite" className="text-sm mt-2 border-2 border-green-500/30 bg-green-500/10 text-green-400 px-3 py-2">Your message has been sent!</p>
                 )}
                 {error && (
-                  <p role="status" aria-live="polite" className="text-sm mt-2 rounded-md border border-red-500/30 bg-red-500/10 text-red-400 px-3 py-2">Something went wrong. Please try again.</p>
+                  <p role="status" aria-live="polite" className="text-sm mt-2 border-2 border-red-500/30 bg-red-500/10 text-red-400 px-3 py-2">Something went wrong. Please try again.</p>
                 )}
               </form>
             </div>
