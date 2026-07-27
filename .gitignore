@@ -28,6 +28,9 @@ bun.lock
 *.sln
 *.sw?
 
+# Playwright MCP
+.playwright-mcp/
+
 
 
 
