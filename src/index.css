@@ -495,11 +495,16 @@
 
 
   .text-hero {
-    font-size: clamp(2.025rem, 5.4vw, 4.05rem); 
+    font-size: clamp(2.025rem, 5.4vw, 4.05rem);
   }
   .text-hero-sub {
-    font-size: clamp(0.9rem, 1.98vw, 1.6875rem); 
+    font-size: clamp(0.9rem, 1.98vw, 1.6875rem);
     line-height: 1.25;
+  }
+
+  .text-display-lg {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
   }
   
   .fade-in-up {
