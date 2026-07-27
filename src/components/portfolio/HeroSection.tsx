@@ -40,7 +40,7 @@ const HeroSection = ({ onSectionClick }: HeroSectionProps) => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 text-center"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 text-center"
       style={{ background: "var(--gradient-hero)" }}
     >
       <div className="max-w-7xl px-4 sm:px-6 lg:px-8 3xl:px-12 4xl:px-16 w-full">
