@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="lg:col-span-8 flex flex-col justify-between space-y-12">
             <Reveal>
               <div className="space-y-6">
-                <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
+                <h2 className="text-display-lg font-bold tracking-tight text-foreground">
                   Have an idea?
                   <br />
                   <span className="text-muted-foreground/50">Let's build it.</span>
@@ -101,7 +101,7 @@ const Footer = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between p-4 rounded-2xl bg-secondary/30 hover:bg-secondary/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
+                    className="group flex items-center justify-between p-4 bg-secondary/30 hover:bg-secondary/50 border border-border/50 hover:border-primary/30 transition-all duration-300"
                   >
                     <span className="font-medium text-foreground/80 group-hover:text-foreground">{label}</span>
                     <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -133,7 +133,7 @@ const Footer = () => {
 
             <button
               onClick={scrollToTop}
-              className="p-3 rounded-full bg-secondary/50 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group"
+              className="p-3 bg-secondary/50 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
