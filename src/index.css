@@ -20,7 +20,8 @@
     --secondary-foreground: 0 0% 96%;
 
     --muted: 210 15% 45%;
-    --muted-foreground: 210 25% 25%;
+    /* Legible on hsl(210 25% 15%); was 210 25% 25% (light-surface gray) */
+    --muted-foreground: 210 15% 65%;
 
     --accent: 185 65% 50%;
     --accent-foreground: 0 0% 96%;
@@ -88,7 +89,8 @@
     --secondary-foreground: 0 0% 96%;
 
     --muted: 210 15% 45%;
-    --muted-foreground: 210 25% 25%;
+    /* Legible on hsl(210 25% 15%); was 210 25% 25% (light-surface gray) */
+    --muted-foreground: 210 15% 65%;
 
     --accent: 185 65% 50%;
     --accent-foreground: 0 0% 96%;

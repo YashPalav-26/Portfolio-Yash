@@ -8,8 +8,8 @@ const LoadingScreen = () => {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    const duration = 5500;
-    const intervalTime = 50;
+    const duration = 3500;
+    const intervalTime = 40;
     const steps = duration / intervalTime;
     const increment = 100 / steps;
 
