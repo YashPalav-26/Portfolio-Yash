@@ -1,3 +1,5 @@
+
+
 <div align="center">
 
 # ✨ Yash Palav — Portfolio
@@ -172,7 +174,7 @@ Navigate to `http://localhost:5173`
 | `npm run dev` | Start Vite development server with HMR |
 | `npm run build` | Create optimized production build |
 | `npm run build:dev` | Build in development mode (unminified) |
-| `npm run preview` | Preview production build locally |
+| `npm run preview` | Preview the production build locally after running `npm run build` |
 | `npm run lint` | Run ESLint for code quality checks |
 
 ---
